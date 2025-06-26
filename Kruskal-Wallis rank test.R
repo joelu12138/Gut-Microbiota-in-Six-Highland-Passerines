@@ -11,8 +11,8 @@ pwc2 <- data %>%
   wilcox_test(core ~ Group, p.adjust.method = "bonferroni")
 pwc2
 write.csv(pwc2,"Chromadoridae.csv")
+
 #Leave-One-Out Kruskal-Wallis analysis
-# Leave-one-out分析
 results_loo <- sapply(1:nrow(data), function(i) {
   data_loo <- data[-i, ]
   test <- kruskal_test(data_loo, Metazoa ~ Group)
